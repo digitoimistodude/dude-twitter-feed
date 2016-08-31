@@ -1,0 +1,16 @@
+{
+  "name": "digitoimistodude/dude-twitter-feed",
+  "type": "wordpress-plugin",
+  "description": "Dude Twitter feed",
+  "homepage": "https://github.com/digitoimistodude/dude-twitter-feed",
+  "keywords": ["wordpress", "plugin"],
+  "license": "MIT",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Timi Wahalahti",
+      "email": "timi@dude.fi",
+      "homepage": "https://www.dude.fi"
+    }
+  ]
+}
