@@ -129,6 +129,30 @@ Class Dude_Twitter_Feed {
 
 		return $response;
 	} // end function get_hashtag_tweets
+	
+	public function get_user_info( $screen_name = '' ) {
+		if( empty( $screen_name ) )
+			return;
+
+		$transient_name = apply_filters( 'dude-twitter-feed/user_info_transient', 'dude-twitter-userinfo-'.$screen_name, $screen_name );
+		$info = get_transient( $transient_name );
+	  if( !empty( $info ) || false != $info )
+	    return $info;
+
+		$endpoint = apply_filters( 'dude-twitter-feed/user_info_endpoint', 'users/show' );
+		$parameters = array(
+			'screen_name'  => $screen_name
+		);
+
+		$response = self::_call_api( $endpoint, apply_filters( 'dude-twitter-feed/user_info_parameters', $parameters ) );
+		if( $response === FALSE )
+			return;
+
+		$response = apply_filters( 'dude-twitter-feed/user_info', $response );
+		set_transient( $transient_name, $response, apply_filters( 'dude-twitter-feed/user_info_lifetime', '600' ) );
+
+		return $response;
+	} // end function get_user_info
 
 	private function _call_api( $endpoint = '', $parameters = array() ) {
 		if( empty( $endpoint ) || empty( $parameters ) )
