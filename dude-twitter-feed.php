@@ -3,7 +3,7 @@
  * Plugin Name: Dude Tweets feed
  * Plugin URL: https://www.dude.fi
  * Description: Fetches the latest tweets for spesified users and hashtgs
- * Version: 0.1.0
+ * Version: 0.2.0
  * Author: Timi Wahalahti / DUDE
  * Author URL: http://dude.fi
  * Requires at least: 4.4.2
