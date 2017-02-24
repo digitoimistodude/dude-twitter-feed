@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: Dude Tweets feed
- * Plugin URL: https://www.dude.fi
+ * Plugin Name: Dude Twitter feed
+ * Plugin URI: https://github.com/digitoimistodude/dude-twitter-feed
  * Description: Fetches the latest tweets for spesified users and hashtgs
  * Version: 0.2.0
- * Author: Timi Wahalahti / DUDE
- * Author URL: http://dude.fi
+ * Author: Digitoimisto Dude Oy, Timi Wahalahti
+ * Author URI: https://www.dude.fi
  * Requires at least: 4.4.2
- * Tested up to: 4.4.2
+ * Tested up to: 4.7.2
  *
  * Text Domain: dude-twitter-feed
  * Domain Path: /languages
