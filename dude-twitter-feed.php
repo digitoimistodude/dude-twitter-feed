@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Dude Twitter feed
  * Plugin URI: https://github.com/digitoimistodude/dude-twitter-feed
- * Description: Fetches the latest tweets for spesified users and hashtgs
+ * Description: Fetches the latest tweets for spesified users and hashtags.
  * Version: 0.2.0
  * Author: Digitoimisto Dude Oy, Timi Wahalahti
  * Author URI: https://www.dude.fi
