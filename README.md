@@ -50,6 +50,24 @@ add_filter( 'dude-twitter-feed/oauth_access_token', function() { return 'token_h
 add_filter( 'dude-twitter-feed/oauth_access_token_secret', function() { return 'token_here'; } );
 ```
 
+4. Then display tweets with this loop for example in **front-page.php** or wherever you want to display tweets:
+
+```php
+<?php
+if ( function_exists('dude_twitter_feed') ) :
+$tweets = dude_twitter_feed()->get_user_tweets( 'mashable' );
+
+if ($tweets) : ?>
+  <ul class="tweets">
+    <?php foreach ( $tweets as $tweet ) : ?>
+      <li><?php echo linkify_tweet( $tweet->text ); ?>
+      <p class="link-to-tweet"><a target="_blank" href="https://twitter.com/mashable/status/<?php echo $tweet->id; ?>">Lue Twitterissä</a></p></li>
+    <?php endforeach;
+    endif; ?>
+</ul>
+<?php endif; ?>            
+```
+
 ### Limiting feed items
 
 ```php
