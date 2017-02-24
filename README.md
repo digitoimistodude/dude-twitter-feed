@@ -58,14 +58,16 @@ if ( function_exists('dude_twitter_feed') ) :
 $tweets = dude_twitter_feed()->get_user_tweets( 'mashable' );
 
 if ($tweets) : ?>
-  <ul class="tweets">
+  <div class="feed twitter-feed">
     <?php foreach ( $tweets as $tweet ) : ?>
-      <li><?php echo linkify_tweet( $tweet->text ); ?>
-      <p class="link-to-tweet"><a target="_blank" href="https://twitter.com/mashable/status/<?php echo $tweet->id; ?>">Lue Twitterissä</a></p></li>
-    <?php endforeach;
-    endif; ?>
-</ul>
-<?php endif; ?>            
+      <div class="item">
+        <?php echo linkify_tweet( $tweet->text ); ?>
+        <p class="link-to-tweet"><a target="_blank" href="https://twitter.com/mashable/status/<?php echo $tweet->id; ?>">View tweet</a></p>
+      </div><!-- .item -->
+    <?php endforeach; ?>
+  </div><!-- .feed -->
+<?php endif;
+endif; ?>
 ```
 
 ### Limiting feed items
