@@ -13,6 +13,7 @@ Plugin uses [twitteroauth library](https://github.com/abraham/twitteroauth) made
 3. [Usage](#usage)
   1. [Usage example for displaying a Twitter user feed](#usage-example-for-displaying-a-twitter-user-feed)
   2. [Limiting feed items](#limiting-feed-items)
+  3. [Make tweet links clickable](#make-tweet-links-clickable)
 4. [Hooks](#hooks)
 5. [Composer](#composer)
 6. [Contributing](#contributing)
@@ -60,6 +61,21 @@ add_filter( 'dude-twitter-feed/user_tweets_parameters', function( $args ) {
 
   return $args;
 });
+```
+
+### Make tweet links clickable
+
+```php
+/**
+ * Make tweet links clickable
+ */
+function linkify_tweet( $tweet ) {
+  $tweet = preg_replace('/([\w]+\:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/', '<a target="_blank" href="$1">$1</a>', $tweet);
+  $tweet = preg_replace('/#([A-Öa-z0-9\/\.]*)/', '<a target="_new" href="http://twitter.com/search?q=$1">#$1</a>', $tweet);
+  $tweet = preg_replace('/@([A-Öa-z0-9\/\.]*)/', '<a href="http://www.twitter.com/$1">@$1</a>', $tweet);
+
+  return $tweet;
+}
 ```
 
 ## Hooks
