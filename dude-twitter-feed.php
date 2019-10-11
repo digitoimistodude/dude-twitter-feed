@@ -145,8 +145,10 @@ Class Dude_Twitter_Feed {
 		);
 
 		$response = self::_call_api( $endpoint, apply_filters( 'dude-twitter-feed/user_info_parameters', $parameters ) );
-		if( $response === FALSE )
+		if( $response === FALSE ) {
+			set_transient( $transient_name, $response, apply_filters( 'dude-twitter-feed/user_info_lifetime', '600' ) / 2 );
 			return;
+		}
 
 		$response = apply_filters( 'dude-twitter-feed/user_info', $response );
 		set_transient( $transient_name, $response, apply_filters( 'dude-twitter-feed/user_info_lifetime', '600' ) );
